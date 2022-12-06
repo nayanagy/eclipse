@@ -6,5 +6,6 @@ public class RemoveWhiteSpace {
 		String str = "Remove White Space";
 		str = str.replaceAll(" ", "");
 		System.out.println("String after removing all the white space: " + str);
+
 	}
 }
