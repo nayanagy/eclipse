@@ -1,6 +1,7 @@
 package com.xworkz.collection.boot;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -10,15 +11,15 @@ public class SanitizerDTORunner {
 
 	public static void main(String[] args) {
 		SanitizerDTO sanitizerDTO1 = new SanitizerDTO("Lifebuoy Hand Sanitizer", 1, 250D, "White");
-		SanitizerDTO sanitizerDTO2 = new SanitizerDTO("Dettol", 0, 25D, "White");
-		SanitizerDTO sanitizerDTO3 = new SanitizerDTO("Himalaya", 0, 50D, "Red");
-		SanitizerDTO sanitizerDTO4 = new SanitizerDTO("Range Pharma", 0, 81D, "White");
-		SanitizerDTO sanitizerDTO5 = new SanitizerDTO("Savlon", 0, 23.99D, "White");
-		SanitizerDTO sanitizerDTO6 = new SanitizerDTO("Setrlomax", 0, 599D, "Red");
-		SanitizerDTO sanitizerDTO7 = new SanitizerDTO("Davis", 0, 50D, "Blue");
-		SanitizerDTO sanitizerDTO8 = new SanitizerDTO("Five Star-Star San", 0, 150D, "Blue");
-		SanitizerDTO sanitizerDTO9 = new SanitizerDTO("Matra Ayurvedic", 0, 200D, "Green");
-		SanitizerDTO sanitizerDTO10 = new SanitizerDTO(null, 0, 430D, null);
+		SanitizerDTO sanitizerDTO2 = new SanitizerDTO("Dettol", 2, 25D, "White");
+		SanitizerDTO sanitizerDTO3 = new SanitizerDTO("Himalaya", 3, 50D, "Red");
+		SanitizerDTO sanitizerDTO4 = new SanitizerDTO("Range Pharma", 4, 81D, "White");
+		SanitizerDTO sanitizerDTO5 = new SanitizerDTO("Savlon", 5, 23.99D, "White");
+		SanitizerDTO sanitizerDTO6 = new SanitizerDTO("Setrlomax", 6, 599D, "Red");
+		SanitizerDTO sanitizerDTO7 = new SanitizerDTO("Davis", 7, 50D, "Blue");
+		SanitizerDTO sanitizerDTO8 = new SanitizerDTO("Five Star-Star San", 8, 150D, "Blue");
+		SanitizerDTO sanitizerDTO9 = new SanitizerDTO("Matra Ayurvedic", 9, 200D, "Green");
+		SanitizerDTO sanitizerDTO10 = new SanitizerDTO(null, 10, 430D, null);
 		// SanitizerDTO sanitizerDTO11 = new SanitizerDTO(null, 0, null, null);
 
 		Collection<SanitizerDTO> sanitizer = new LinkedList<SanitizerDTO>();
@@ -34,6 +35,7 @@ public class SanitizerDTORunner {
 		sanitizer.add(sanitizerDTO1);
 		// sanitizer.add(sanitizerDTO11);
 
+		//System.out.println("max val: " + Collections.max(sanitizer, null));
 		// for each or iterator
 		Iterator<SanitizerDTO> ref = sanitizer.iterator();
 		while (ref.hasNext()) {
@@ -51,7 +53,7 @@ public class SanitizerDTORunner {
 		Iterator<SanitizerDTO> ref1 = sanitizer.iterator();
 		while (ref1.hasNext()) {
 			SanitizerDTO element1 = ref1.next();
-			if (element1 != null) {
+			if (element1.getBrand() == null || element1.getColor() == null) {
 				System.out.println(element1);
 			}
 		}
@@ -86,6 +88,7 @@ public class SanitizerDTORunner {
 			}
 		}
 		System.out.println("================================");
+
 		Iterator<SanitizerDTO> ref5 = sanitizer.iterator();
 		while (ref5.hasNext()) {
 			SanitizerDTO element5 = ref5.next();
@@ -94,6 +97,17 @@ public class SanitizerDTORunner {
 			}
 		}
 
-	}
+		System.out.println("================================");
 
+		/*
+		 * Iterator<SanitizerDTO> ref6 = sanitizer.iterator(); while (ref6.hasNext()) {
+		 * SanitizerDTO element6 = ref6.next();
+		 * if(Collections.max(element6.getPrice())){
+		 * System.out.println(" max priced sanitizer  " );
+		 * 
+		 * }
+		 */
+		// System.out.println(" max priced sanitizer " + Collections.max());
+
+	}
 }

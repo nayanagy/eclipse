@@ -1,4 +1,4 @@
-package com.xworkz.collection;
+package com.xworkz.collection.boot;
 
 import java.util.Collection;
 import java.util.Iterator;
