@@ -74,7 +74,6 @@ public class SanitizerDTORunner {
 			SanitizerDTO element3 = ref3.next();
 			if (element3.getPrice() < 25) {
 				System.out.println("Sanitizer with least price " + element3);
-
 			}
 		}
 
@@ -84,9 +83,9 @@ public class SanitizerDTORunner {
 			SanitizerDTO element4 = ref4.next();
 			if (element4.getPrice() > 500) {
 				System.out.println(" Sanitizer with max price   " + element4);
-
 			}
 		}
+		
 		System.out.println("================================");
 
 		Iterator<SanitizerDTO> ref5 = sanitizer.iterator();
@@ -97,7 +96,7 @@ public class SanitizerDTORunner {
 			}
 		}
 
-		System.out.println("================================");
+		//System.out.println("================================");
 
 		/*
 		 * Iterator<SanitizerDTO> ref6 = sanitizer.iterator(); while (ref6.hasNext()) {
