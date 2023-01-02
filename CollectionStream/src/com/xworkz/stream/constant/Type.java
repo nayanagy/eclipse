@@ -1,0 +1,6 @@
+package com.xworkz.stream.constant;
+
+public enum Type {
+	HIRARCHICAL_DATABASES, NETWORK_DATABASES, NOSQL_DATABASES, OBJECT_ORIENTED_DATABASES,SQL;
+
+}
