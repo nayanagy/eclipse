@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-public class PinCode {
+public class PinCode {  
 
 	public static void main(String[] args) {
 		Map<Long, String> map = new HashMap();
