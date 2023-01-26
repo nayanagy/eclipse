@@ -26,6 +26,7 @@ public class Runner {
 		System.out.println("saved " + save);
 
 		System.out.println("================================================");
+	
 		ResortService resortservice = container.getBean(ResortService.class);
 		boolean save1 = resortservice.validateAndSave(new ResortDTO());
 		System.out.println("saved " + save1);

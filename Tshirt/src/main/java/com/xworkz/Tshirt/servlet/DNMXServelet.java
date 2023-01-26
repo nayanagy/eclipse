@@ -19,4 +19,3 @@ public class DNMXServelet extends HttpServlet {
 		System.out.println("running do get method in dnmx");
 	}
 }
- 
