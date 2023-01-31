@@ -56,6 +56,8 @@ public class CompanyServlet extends HttpServlet {
 		writer.print("</span>");
 		writer.print("</h1>");
 		writer.print("<a href=\"index.html\">Home</a>");
+		writer.print("<br>");
+		writer.print("<a href=\"Location.html\">Back to Location</a>");
 		writer.print("</body>");
 		writer.print("</html>");
 		resp.setContentType("text/html");

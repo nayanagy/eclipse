@@ -52,6 +52,8 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 	writer.print("</span>");
 	writer.print("</h1>");
 	writer.print("<a href=\"index.html\">Home</a>");
+	writer.print("<br>");
+	writer.print("<a href=\"contact.html\">Back to contact</a>");
 	writer.print("</body>");
 	writer.print("</html>");
 	resp.setContentType("text/html");
