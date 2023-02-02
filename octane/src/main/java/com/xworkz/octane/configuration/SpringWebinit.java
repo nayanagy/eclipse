@@ -29,7 +29,7 @@ public class SpringWebinit extends AbstractAnnotationConfigDispatcherServletInit
 	@Override
 	protected String[] getServletMappings() {
 		System.out.println("running getServletMappings");
-		String[] ref = { "*" };
+		String[] ref = { "/" };
 		System.out.println("getServletMappings : " + Arrays.toString(ref));
 		return ref;
 	}
