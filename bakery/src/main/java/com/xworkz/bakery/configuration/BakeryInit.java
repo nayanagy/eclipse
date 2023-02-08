@@ -1,4 +1,4 @@
-package com.xworkz.nayana.configuration;
+package com.xworkz.bakery.configuration;
 
 import java.util.Arrays;
 
@@ -6,10 +6,10 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class ButtonInit extends AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {
+public class BakeryInit extends AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {
 
-	public ButtonInit() {
-		System.out.println("Created.." + this.getClass().getSimpleName());
+	public BakeryInit() {
+		System.out.println("Created " + this.getClass().getSimpleName());
 	}
 
 	@Override
@@ -21,8 +21,7 @@ public class ButtonInit extends AbstractAnnotationConfigDispatcherServletInitial
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		System.out.println("Running getRootConfigClasses");
-		Class[] ref = { ButtonConfiguration.class };
-	System.out.println(Arrays.toString(ref));
+		Class[] ref = { BakeryConfiguration.class };
 		return ref;
 	}
 

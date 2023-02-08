@@ -65,7 +65,6 @@ public class DisplayButtonController {
 	public String onBesties(Model model) {
 		System.out.println("Running onBesties");
 		List<String> list = new ArrayList<String>();
-		list.add("Nishitha");
 		list.add("Shashank");
 		list.add("Arun");
 		list.add("Spoorthi");
