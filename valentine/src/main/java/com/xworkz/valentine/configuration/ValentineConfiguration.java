@@ -1,4 +1,4 @@
-package com.xworkz.egg.configuration;
+package com.xworkz.valentine.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -8,22 +8,22 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan("com.xworkz")
-public class EggApplicationConfiguration {
-	public EggApplicationConfiguration() {
+@ComponentScan("com.xworkz.valentine")
+public class ValentineConfiguration {
+
+	public ValentineConfiguration() {
 		System.out.println("Created " + this.getClass().getSimpleName());
 	}
-,
+
 	@Bean
 	public ViewResolver viewResolver() {
-		System.out.println("registering ViewResolver");
+		System.out.println("Registering custom ViewResolver");
 		return new InternalResourceViewResolver("/", ".jsp");
 	}
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean() {
-		System.out.println("registering localContainerEntityManagerFactoryBean");
-		LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
-		return bean;
+		System.out.println("Registering LocalContainerEntityManagerFactoryBean");
+		return new LocalContainerEntityManagerFactoryBean();
 	}
 }
