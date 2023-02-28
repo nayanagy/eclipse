@@ -31,7 +31,7 @@ public class JewelleryController {
 		System.out.println("Created " + this.getClass().getSimpleName());
 	}
 
-	@GetMapping("/Jewellery")
+	@GetMapping("jewellery")
 	public String onJewellery(Model model) {
 		System.out.println("Running onJewellery on get mapping");
 		List<String> colors = Arrays.asList("silver", "Black", "White", "gold");
@@ -39,7 +39,7 @@ public class JewelleryController {
 		return "jewellery";
 	}
 
-	@GetMapping("/search")
+	@GetMapping("search")
 	public String onSearch(@RequestParam int id,Model model) {
 		System.out.println("Running on search for id "+id);
 		JewelleryDTO dto=this.jewelleryService.findById(id);
@@ -51,7 +51,7 @@ public class JewelleryController {
 		return "JewellerySearch";
 	}
 
-	@PostMapping("/jewellery")
+	@PostMapping("jewellery")
 	public String onMicrowave(Model model, JewelleryDTO dto) {
 		System.out.println("Running onMicrowave on post mapping" + dto);
 		Set<ConstraintViolation<JewelleryDTO>> violations = this.jewelleryService.validateAndSave(dto);

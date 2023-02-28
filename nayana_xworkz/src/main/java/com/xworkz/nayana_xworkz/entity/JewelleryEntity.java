@@ -17,11 +17,11 @@ public class JewelleryEntity {
 	@Column(name = "j_name")
 	private String name;
 	@Column(name = "j_price")
-	private Double price;
+	private int price;
 	@Column(name = "j_color")
 	private String color;
 	@Column(name = "j_type")
 	private String type;
 	@Column(name = "j_weight")
-	private Integer weight;
+	private int weight;
 }

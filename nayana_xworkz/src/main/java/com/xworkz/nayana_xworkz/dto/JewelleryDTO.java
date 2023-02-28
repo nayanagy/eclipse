@@ -15,7 +15,7 @@ public class JewelleryDTO {
 	private String name;
 	@NotNull(message = "Price cannot be null or blank")
 	@Min(value = 1, message = "Price cannot be less than zero")
-	private Double price;
+	private int price;
 	@NotBlank(message = "Color cannot be null")
 	@Size(min = 3, max = 20, message = "Color should be more than 3 or less than 20 characters")
 	private String color;
@@ -24,5 +24,5 @@ public class JewelleryDTO {
 	private String type;
 	@NotNull(message = "Weight cannot be null or blank")
 	@Min(value = 1, message = "Weight cannot be less than zero")
-	private Integer weight;
+	private int weight;
 }
