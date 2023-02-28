@@ -52,8 +52,8 @@ public class JewelleryController {
 	}
 
 	@PostMapping("jewellery")
-	public String onJewellery(Model model, JewelleryDTO dto) {
-		System.out.println("Running onJewellery on post mapping" + dto);
+	public String onMicrowave(Model model, JewelleryDTO dto) {
+		System.out.println("Running onMicrowave on post mapping" + dto);
 		Set<ConstraintViolation<JewelleryDTO>> violations = this.jewelleryService.validateAndSave(dto);
 		if (violations.isEmpty()) {
 			System.out.println("No violations in controler go to success page");
@@ -64,17 +64,5 @@ public class JewelleryController {
 		model.addAttribute("dto", dto);
 		System.err.println("Violations in controller");
 		return "jewellery";
-	}
-	
-	@GetMapping("searchByName")
-	public String onSearchByName(@RequestParam String name, Model model) {
-		System.out.println("Running on search for name " + name);
-		List<JewelleryDTO> dto = this.jewelleryService.findByName(name);
-		if (dto != null) {
-			model.addAttribute("dto", dto);
-		} else {
-			model.addAttribute("message", "Data not found");
-		}
-		return "JewelleryNameSearch";
 	}
 }

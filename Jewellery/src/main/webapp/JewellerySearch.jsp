@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,17 +22,27 @@
 			<a class="navbar-brand" href="#"
 				class="d-inline-block align-text-top"><img
 				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
-				alt="" height="48" width="80"> </a>
-				<ul>
+				alt="" height="48" width="80"> </a><ul>
 				<li style="display: inline-block;padding: 20px;">
-					<a href="jewellery" class="col-lg-2 col-sm-2">Jewellery Register</a>
+					<a href="index.jsp" class="col-lg-2 col-sm-2">Home Page</a>
 					<li style="display: inline-block;">
-					<a href="JewellerySearch.jsp"  class="col-lg-2 col-sm-2">Jewellery Search</a>
-					<li style="display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-					href="JewelleryNameSearch.jsp" class="col-lg-2 col-sm-2">JewelleryName Search</a>
+					<a href="jewellery" class="col-lg-2 col-sm-2">Jewellery Register</a>
 				</ul>
 			</div>
 	</nav>
-	<h1>Welcome to Jewellery shop</h1>
+	<h1>Welcome to Jewellery Search page</h1>
+	<h3><span style="color:red">${message}</span></h3>
+	<form action="search" method="get">
+	Search By Id<input type="text" name="id"/>
+	<input type="submit" value="search"/>
+	</form>
+	<div>
+	<h4>Search Results</h4>
+	Name:${dto.name}<br>
+	Price:${dto.price}<br>
+	Type:${dto.type}<br>
+	Color:${dto.color}<br>
+	Weight:${dto.weight}<br>
+	</div>
 </body>
 </html>

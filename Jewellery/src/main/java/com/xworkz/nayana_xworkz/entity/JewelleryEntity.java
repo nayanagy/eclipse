@@ -3,7 +3,6 @@ package com.xworkz.nayana_xworkz.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -11,7 +10,6 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "Jewellery_table")
-@NamedQuery(name = "findByName", query = "select ent from JewelleryEntity ent where ent.name=:nam")
 public class JewelleryEntity {
 	@Id
 	@Column(name = "j_id")

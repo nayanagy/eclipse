@@ -1,7 +1,5 @@
 package com.xworkz.nayana_xworkz.service;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -13,9 +11,5 @@ public interface JewelleryService {
 
 	default JewelleryDTO findById(int id) {
 		return null;
-	}
-	
-	default List<JewelleryDTO> findByName(String name) {
-		return Collections.emptyList();
 	}
 }

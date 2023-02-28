@@ -28,8 +28,6 @@
 					<a href="jewellery" class="col-lg-2 col-sm-2">Jewellery Register</a>
 					<li style="display: inline-block;">
 					<a href="JewellerySearch.jsp"  class="col-lg-2 col-sm-2">Jewellery Search</a>
-					<li style="display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-					href="JewelleryNameSearch.jsp" class="col-lg-2 col-sm-2">JewelleryName Search</a>
 				</ul>
 			</div>
 	</nav>

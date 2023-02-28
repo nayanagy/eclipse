@@ -1,4 +1,4 @@
-package com.xworkz.aeroplane.repository;
+package com.xworkz.nayana_xworkz.repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -7,20 +7,20 @@ import javax.persistence.EntityTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.xworkz.aeroplane.entity.AeroplaneEntity;
+import com.xworkz.nayana_xworkz.entity.JewelleryEntity;
 
 @Repository
-public class AeroplaneRepositoryImpl implements AeroplaneRepository {
+public class JewelleryRepoImpl implements JewelleryRepository {
 
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;
 
-	public AeroplaneRepositoryImpl() {
+	public JewelleryRepoImpl() {
 		System.out.println("Created " + this.getClass().getSimpleName());
 	}
 
 	@Override
-	public boolean save(AeroplaneEntity entity) {
+	public boolean save(JewelleryEntity entity) {
 		System.out.println("Running save in Repository");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		EntityTransaction et = em.getTransaction();
@@ -32,13 +32,12 @@ public class AeroplaneRepositoryImpl implements AeroplaneRepository {
 	}
 
 	@Override
-	public AeroplaneEntity findById(int id) {
+	public JewelleryEntity findById(int id) {
 		System.out.println("find by id in repo " + id);
 		EntityManager entityManager = this.entityManagerFactory.createEntityManager();
-		AeroplaneEntity fromDb = entityManager.find(AeroplaneEntity.class, id);
+		JewelleryEntity fromDb = entityManager.find(JewelleryEntity.class, id);
 		entityManager.close();
 		return fromDb;
 	}
-	
-	
+
 }

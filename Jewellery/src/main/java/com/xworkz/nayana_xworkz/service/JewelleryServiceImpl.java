@@ -1,8 +1,6 @@
 package com.xworkz.nayana_xworkz.service;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -66,33 +64,6 @@ public class JewelleryServiceImpl implements JewelleryService {
 			}
 		}
 		return JewelleryService.super.findById(id);
-	}
-	
-	
-	@Override
-	public List<JewelleryDTO> findByName(String name) {
-		System.out.println("Running findByName in service " + name);
-		if (name != null && !name.isEmpty()) {
-			System.out.println("Name is valid calling repo");
-			List<JewelleryEntity> entities = this.jewelleryRepository.findByName(name);
-			List<JewelleryDTO> listOfDTO = new ArrayList<JewelleryDTO>();
-			for (JewelleryEntity entity : entities) {
-				JewelleryDTO dto = new JewelleryDTO();
-				dto.setId(entity.getId());
-				dto.setName(entity.getName());
-				dto.setType(entity.getType());
-				dto.setColor(entity.getColor());
-				dto.setPrice(entity.getPrice());
-				dto.setWeight(entity.getWeight());
-				listOfDTO.add(dto);
-			}
-			System.out.println("Size in dtos " + listOfDTO.size());
-			System.out.println("size in entities " + entities.size());
-			return listOfDTO;
-		} else {
-			System.err.println("Name is invalid");
-		}
-		return JewelleryService.super.findByName(name);
 	}
 
 }
