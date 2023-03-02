@@ -95,4 +95,41 @@ public class JewelleryServiceImpl implements JewelleryService {
 		return JewelleryService.super.findByName(name);
 	}
 
+	@Override
+	public Set<ConstraintViolation<JewelleryDTO>> validateAndUpdate(JewelleryDTO dto) {
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		Validator validator = factory.getValidator();
+		Set<ConstraintViolation<JewelleryDTO>> violations = validator.validate(dto);
+		if (violations != null && !violations.isEmpty()) {
+			System.err.println("Violations in dto " + dto);
+			return violations;
+		} else {
+			System.out.println("Violations is not there in dto,can save");
+			JewelleryEntity jentity = new JewelleryEntity();
+			jentity.setName(dto.getName());
+			jentity.setId(dto.getId());
+			jentity.setPrice(dto.getPrice());
+			jentity.setType(dto.getType());
+			jentity.setColor(dto.getColor());
+			jentity.setWeight(dto.getWeight());
+			boolean update = this.jewelleryRepository.update(jentity);
+			System.out.println("Entity data is saved " + update);
+			return Collections.emptySet();
+		}
+	}
+	
+	
+	@Override
+	public boolean validateAnddelete(int id) {
+		System.out.println("Running Validateanddelete");
+		if (id < 0) {
+			return false;
+		} else {
+			boolean deleted=this.jewelleryRepository.delete(id);
+			System.out.println("Deleted: "+deleted);
+			return deleted;
+			
+		}
+	}
+
 }

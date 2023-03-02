@@ -7,6 +7,7 @@ import com.xworkz.nayana_xworkz.entity.JewelleryEntity;
 
 public interface JewelleryRepository {
 	boolean save(JewelleryEntity entity);
+	boolean update(JewelleryEntity entity);
 
 	default JewelleryEntity findById(int id) {
 		return null;
@@ -15,4 +16,6 @@ public interface JewelleryRepository {
 	default List<JewelleryEntity> findByName(String name) {
 		return Collections.emptyList();
 	}
+	
+	boolean delete(int id);
 }

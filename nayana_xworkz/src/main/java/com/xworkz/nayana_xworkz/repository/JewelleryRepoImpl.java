@@ -62,4 +62,37 @@ public class JewelleryRepoImpl implements JewelleryRepository {
 		}
 	}
 
+	@Override
+	public boolean update(JewelleryEntity entity) {
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			EntityTransaction transaction = manager.getTransaction();
+			transaction.begin();
+			manager.merge(entity);
+			transaction.commit();
+			return true;
+		}finally {
+			manager.close();
+		}
+		
+	}
+	
+	@Override
+	public boolean delete(int id) {
+		System.out.println("Running delete");
+		EntityManager entityManager = this.entityManagerFactory.createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		JewelleryEntity del=entityManager.find(JewelleryEntity.class, id);
+		
+		entityTransaction.begin();
+		entityManager.remove(del);
+		entityTransaction.commit();
+		entityManager.close();
+
+		return true;
+
+	}
+	
+	
+
 }

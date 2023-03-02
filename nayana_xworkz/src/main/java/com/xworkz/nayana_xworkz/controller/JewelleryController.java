@@ -77,4 +77,41 @@ public class JewelleryController {
 		}
 		return "JewelleryNameSearch";
 	}
+	
+	@GetMapping("update")
+	public String onUpdate(@RequestParam int id, Model model) {
+		System.out.println("running onUpdate "+id);
+		JewelleryDTO dto=this.jewelleryService.findById(id);
+		model.addAttribute("dto", dto);
+		model.addAttribute("colors", colors);
+		
+		return "JewelleryUpdate";
+			
+	}
+	
+	@PostMapping("update")
+	public String onUpdate(Model model, JewelleryDTO dto) {
+		System.out.println("running onUpdate "+dto);
+		Set<ConstraintViolation<JewelleryDTO>> constraintviolations = this.jewelleryService.validateAndUpdate(dto);
+		if(constraintviolations.size()>0) {
+			model.addAttribute("errors",constraintviolations);
+		}else {
+			model.addAttribute("message", "Jewellery update Success");
+		}
+		return "JewelleryUpdate";
+	}
+	
+	@GetMapping("delete")
+	public String onDelete(@RequestParam int id,Model model) {
+		System.out.println("Running onDelete");
+		boolean delete=this.jewelleryService.validateAnddelete(id);
+		if(delete=true) {
+			System.out.println("deleted data of :"+id);
+			model.addAttribute("delete", "Deleted successfully : ID : ");
+			model.addAttribute("id",id);
+		}else {
+			model.addAttribute("notDeleted","Id not found");
+		}
+		return "JewelleryNameSearch";
+	}
 }

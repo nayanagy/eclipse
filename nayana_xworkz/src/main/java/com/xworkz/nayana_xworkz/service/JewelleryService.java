@@ -18,4 +18,10 @@ public interface JewelleryService {
 	default List<JewelleryDTO> findByName(String name) {
 		return Collections.emptyList();
 	}
+	
+	Set<ConstraintViolation<JewelleryDTO>> validateAndUpdate(JewelleryDTO dto);
+	
+	default boolean validateAnddelete(int id) {
+		return false;
+	}
 }

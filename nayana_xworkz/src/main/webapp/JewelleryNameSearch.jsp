@@ -31,7 +31,9 @@
 			</div>
 	</nav>
 	<h1>Welcome to Jewellery Name Search page</h1>
-	<h3><span style="color:red">${message}</span></h3>
+	<h3><span style="color:red">${message}</span>
+	<span style="color: red">${delete}${id }</span>
+	<span style="color: red">${notDeleted }</span></h3>
 	<form action="searchByName" method="get">
 	Search By Name<input type="text" name="name"/>
 	<input type="submit" value="search"/>
@@ -40,12 +42,14 @@
 	<div>
 	<table class="table table-bordered">
 	<tr>
-	<th>ID</th>
-	<th>Name</th>
-	<th>Price</th>
-	<th>Type</th>
-	<th>Color</th>
-	<th>weight</th>
+	<th scope="col">ID</th>
+	<th scope="col">Name</th>
+	<th scope="col">Price</th>
+	<th scope="col">Type</th>
+	<th scope="col">Color</th>
+	<th scope="col">weight</th>
+	<th scope="col">Edit</th>
+	<th scope="col">Delete</th>
 	</tr>
 	<c:forEach items="${dto}" var="t">
 	<tr>
@@ -55,6 +59,8 @@
 	<td>${t.type}</td>
 	<td>${t.color}</td>
 	<td>${t.weight}</td>
+	<td><a href="update?id=${t.id}">Edit</a></td>
+	<td><a href="delete?id=${t.id }" class="btn btn-danger">Delete</a></td> 
 	</tr>
 	</c:forEach>
 		</table>	
