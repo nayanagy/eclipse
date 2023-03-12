@@ -1,6 +1,7 @@
 package com.xworkz.nayana_xworkz.service;
 
 import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -10,6 +11,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -93,6 +95,7 @@ public class JewelleryServiceImpl implements JewelleryService {
 			System.err.println("Name is invalid");
 		}
 		return JewelleryService.super.findByName(name);
+		
 	}
 
 	@Override
@@ -131,5 +134,49 @@ public class JewelleryServiceImpl implements JewelleryService {
 			
 		}
 	}
+	@Override
+	public List<JewelleryDTO> findByNameAndPrice(String name,int price) {
+		System.out.println("Running findByName and price in service " + name + price);
+		if ((name != null && !name.isEmpty()) && price !=0 ) {
+			System.out.println("Name and price is valid calling repo");
+			List<JewelleryEntity> entities = this.jewelleryRepository.findByName(name);
+			List<JewelleryDTO> listOfDTO = new ArrayList<JewelleryDTO>();
+			for (JewelleryEntity entity : entities) {
+				JewelleryDTO dto = new JewelleryDTO();
+				dto.setId(entity.getId());
+				dto.setName(entity.getName());
+				dto.setType(entity.getType());
+				dto.setColor(entity.getColor());
+				dto.setPrice(entity.getPrice());
+				dto.setWeight(entity.getWeight());
+				listOfDTO.add(dto);
+			}
+			System.out.println("Size in dtos " + listOfDTO.size());
+			System.out.println("size in entities " + entities.size());
+			return listOfDTO;
+		} else {
+			System.err.println("Name is invalid");
+		}
+		return JewelleryService.super.findByNameAndPrice(name,price);
+		
+	}
+	
+	@Override
+	public List<JewelleryDTO> findAll() {
+		System.out.println("Running findAll in service ");
+			System.out.println("Entity is valid calling repo");
+			List<JewelleryEntity> entities = this.jewelleryRepository.findAll();
+			List<JewelleryDTO> listOfDTO = new ArrayList<JewelleryDTO>();
+			for (JewelleryEntity entity : entities) {
+				JewelleryDTO dto = new JewelleryDTO();
+				BeanUtils.copyProperties(entity,dto);
+				
+				listOfDTO.add(dto);
+			}
+			System.out.println("Size in dtos " + listOfDTO.size());
+			System.out.println("size in entities " + entities.size());
+			return listOfDTO;
+	}
+	
 
 }

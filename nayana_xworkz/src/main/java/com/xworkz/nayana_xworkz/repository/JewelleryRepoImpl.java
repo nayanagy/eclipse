@@ -89,10 +89,44 @@ public class JewelleryRepoImpl implements JewelleryRepository {
 		entityTransaction.commit();
 		entityManager.close();
 
-		return true;
+		return true;	
 
 	}
 	
+	@Override
+	public List<JewelleryEntity> findByNameAndPrice(String name,int price) {
+		System.out.println("Running findByNameAndPrice in repository " + name +price);
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findByNameAndPrice");
+			query.setParameter("nam", name);
+			query.setParameter("pri", price);
+			System.out.println("query : " + query);
+			List<JewelleryEntity> list = query.getResultList();
+			System.out.println("Total list found in repo " + list.size());
+			return list;
+		} finally {
+			manager.close();
+			System.out.println("Released the connection");
+		}
+	}
+	
+	
+	@Override
+	public List<JewelleryEntity> findAll() {
+		System.out.println("Running findAll in repository ");
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findAll");
+			System.out.println("query : " + query);
+			List<JewelleryEntity> list = query.getResultList();
+			System.out.println("Total list found in repo " + list.size());
+			return list;
+		} finally {
+			manager.close();
+			System.out.println("Released the connection");
+		}
+	}
 	
 
 }

@@ -17,5 +17,13 @@ public interface JewelleryRepository {
 		return Collections.emptyList();
 	}
 	
+	default List<JewelleryEntity> findByNameAndPrice(String name,int price) {
+		return Collections.emptyList();
+	}
+	
+	default List<JewelleryEntity> findAll() {
+		return Collections.emptyList();
+	}
+	
 	boolean delete(int id);
 }

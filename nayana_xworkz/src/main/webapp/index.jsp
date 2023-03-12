@@ -30,6 +30,10 @@
 					<a href="JewellerySearch.jsp"  class="col-lg-2 col-sm-2">Jewellery Search</a>
 					<li style="display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
 					href="JewelleryNameSearch.jsp" class="col-lg-2 col-sm-2">JewelleryName Search</a>
+					<li style="display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+					href="JewelleryNameAndPriceSearch.jsp" class="col-lg-2 col-sm-2">JewelleryNameAndPrice Search</a>
+					<li style="display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+					href="searchAll" class="col-lg-2 col-sm-2">Jewellery details page</a>
 				</ul>
 			</div>
 	</nav>

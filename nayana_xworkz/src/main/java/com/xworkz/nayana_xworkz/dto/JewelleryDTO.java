@@ -25,4 +25,5 @@ public class JewelleryDTO {
 	@NotNull(message = "Weight cannot be null or blank")
 	@Min(value = 1, message = "Weight cannot be less than zero")
 	private int weight;
+	
 }

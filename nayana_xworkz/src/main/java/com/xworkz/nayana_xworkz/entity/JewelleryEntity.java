@@ -12,6 +12,8 @@ import lombok.Data;
 @Data
 @Table(name = "Jewellery_table")
 @NamedQuery(name = "findByName", query = "select ent from JewelleryEntity ent where ent.name=:nam")
+@NamedQuery(name="findByNameAndPrice",query = "select entity from JewelleryEntity entity where entity.name=:nam and entity.price=:pri")
+@NamedQuery(name = "findAll",query = "select entity from JewelleryEntity entity")
 public class JewelleryEntity {
 	@Id
 	@Column(name = "j_id")
@@ -26,4 +28,5 @@ public class JewelleryEntity {
 	private String type;
 	@Column(name = "j_weight")
 	private int weight;
+	
 }

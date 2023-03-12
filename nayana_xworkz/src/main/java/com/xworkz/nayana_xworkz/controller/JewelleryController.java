@@ -114,4 +114,30 @@ public class JewelleryController {
 		}
 		return "JewelleryNameSearch";
 	}
+	
+	@GetMapping("searchByNameAndPrice")
+	public String onSearchByNameAndPrice(@RequestParam String name,int price, Model model) {
+		System.out.println("Running on search for name and price " + name + price);
+		List<JewelleryDTO> dto = this.jewelleryService. findByNameAndPrice(name,price);
+		
+		if (dto != null ) {
+			model.addAttribute("dto", dto);
+		} else {
+			model.addAttribute("message", "Data not found");
+		}
+		return "JewelleryNameAndPriceSearch";
+	}
+	
+	
+	@GetMapping("/searchAll")
+	public String onSearchAll(Model model) {
+		System.out.println("Running on search for all ");
+		List<JewelleryDTO> dto = this.jewelleryService.findAll();
+		if (dto != null) {
+			model.addAttribute("dto", dto);
+		} else {
+			model.addAttribute("message1", "Data not found");
+		}
+		return "SearchAll";
+	}
 }
