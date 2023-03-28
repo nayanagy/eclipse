@@ -34,6 +34,8 @@
 					href="JewelleryNameAndPriceSearch.jsp" class="col-lg-2 col-sm-2">JewelleryNameAndPrice Search</a>
 					<li style="display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
 					href="searchAll" class="col-lg-2 col-sm-2">Jewellery details page</a>
+					<li style="display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+					href="ImageUpload.jsp" class="col-lg-2 col-sm-2">Upload an Image</a>
 				</ul>
 			</div>
 	</nav>
